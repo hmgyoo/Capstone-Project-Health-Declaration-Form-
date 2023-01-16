@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../const/const.dart';
 
@@ -26,3 +27,30 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+
+// class ProfilePage extends StatefulWidget {
+//   const ProfilePage({super.key});
+
+//   @override
+//   State<ProfilePage> createState() => _ProfilePageState();
+// }
+
+// class _ProfilePageState extends State<ProfilePage> {
+
+//   // define variables to be used
+//   final _formKey = GlobalKey<FormState>();
+//   final _firestore = FirebaseFirestore.instance;
+
+//   late String _firstName;
+//   late String _lastName;
+//   late String _plmEmail;
+//   late String _mobileNumber;
+//   late String _studentId;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stream
+//     );
+//   }
+// }

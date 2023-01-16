@@ -17,6 +17,8 @@ class _NotificationPageState extends State<NotificationPage> {
   // define variables first
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+  // late AndroidInitializationSettings androidInitializationSettings;
+  // late InitializationSettings initializationSettings;
 
   // global key
   final _formKey = GlobalKey<FormState>();
@@ -36,6 +38,7 @@ class _NotificationPageState extends State<NotificationPage> {
     _scheduledTime = TimeOfDay.now();
   }
 
+  // show the notification on android
   void initializeNotifications() async {
     var initializationSettingsAndroid =
         const AndroidInitializationSettings('@mipmap/ic_launcher');

@@ -2,6 +2,7 @@ import 'package:capstone_proj/src/const/const.dart';
 import 'package:capstone_proj/src/content/screens/countriesPage.dart';
 import 'package:capstone_proj/src/content/screens/homepage.dart';
 import 'package:capstone_proj/src/healthCheckUp/screens/headerForm.dart';
+import 'package:capstone_proj/src/reminders/screens/sendReminders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -33,7 +34,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const HomePage(),
     const CountryPage(),
     const HeaderForm(),
-    const NotificationPage(),
+    const SendRemindersPage(),
     ProfilePage(),
   ];
 
