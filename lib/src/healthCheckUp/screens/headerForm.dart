@@ -83,12 +83,9 @@ class _HeaderFormState extends State<HeaderForm> {
       agreeToPrivacy: agreeToPrivacy,
       beenSick: beenSick,
       date: dateNow,
-      firstName: '',
       hasContact: hasContact,
       haveSymptoms: haveSymptoms,
-      lastName: '',
       email: email,
-      studentId: '',
     );
 
     // convert into json
@@ -118,7 +115,7 @@ class _HeaderFormState extends State<HeaderForm> {
           _questions[index].options.values.toList()[i] ==
                   true // change the value of answer depending if the answer is true or false
               ? answer = true
-              : answer = false;
+              : answer = answer;
         }
 
         // set state outside of index to not loop twice
@@ -174,36 +171,38 @@ class _HeaderFormState extends State<HeaderForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      body: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            // insert the questions for the forms
-            QuestionWidget(
-              indexAction: index,
-              question: _questions[index].title,
-              totalQuestions: _questions.length,
-            ),
-
-            // divider
-            Divider(color: Colors.grey.shade200, thickness: 2),
-
-            // space options with questions with sizedbox
-            const SizedBox(height: 25),
-
-            // loop through the questions
-            for (int i = 0; i < _questions[index].options.length; i++)
-              OptionWidget(
-                option: _questions[index].options.keys.toList()[i],
-                color: isPressed
-                    ? _questions[index].options.values.toList()[i] == true
-                        ? kRecoveredColor
-                        : kConfirmedColor
-                    : kDeathColor,
-                onTap: changeColor,
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              // insert the questions for the forms
+              QuestionWidget(
+                indexAction: index,
+                question: _questions[index].title,
+                totalQuestions: _questions.length,
               ),
-          ],
+
+              // divider
+              Divider(color: Colors.grey.shade200, thickness: 2),
+
+              // space options with questions with sizedbox
+              const SizedBox(height: 25),
+
+              // loop through the questions
+              for (int i = 0; i < _questions[index].options.length; i++)
+                OptionWidget(
+                  option: _questions[index].options.keys.toList()[i],
+                  color: isPressed
+                      ? _questions[index].options.values.toList()[i] == true
+                          ? kRecoveredColor
+                          : kConfirmedColor
+                      : kDeathColor,
+                  onTap: changeColor,
+                ),
+            ],
+          ),
         ),
       ),
 
